@@ -1,0 +1,54 @@
+----------- Shadow DOM -----------------
+-by def: Emulated
+-style.css: Global level css
+-Emulated: Only applicable to the current comp
+-ShadowDom: apply to this comp & all its children comp
+-None: apply to everyone
+
+
+App > Child > Child1:
+emulated  > emulated  > emulated: all comp will check in their own first, & then to style.css(because shadowdom is not present in any ancestors)
+ShadowDom > ShadowDom > emulated: Chidl1 will get css from Child
+ShadowDom > emulated  > emulated: Child1 will get css from App
+
+---------- Angular Elements ----------------
+-Exports the angular comp as web comp such that it can be used outside angular app in any js based app
+-cmd : ng add @angular/elements --project=proj_nm
+-proj_nm is present in "package.json"
+-whatever comp u need to export we have to pass it in entryComponents array in app.module.ts
+-To package:
+	cmd: npm install --save-dev concat fs-extra
+-add "build:elements" in package.json to remove hashing 
+-cmd: npm install -g static-server
+-cmd: to run : static:server
+
+
+-------NOTES:
+--Contents of webpack bundle:
+	-main.js: contains all our code including components(ts,html,css), pipes, directives, services and all other imported modules(including third party)
+	-polyfills.js: few lines of code which make your application compatible for different browsers.
+	-Different js files for all lazy loaded modules
+
+
+
+--------- Dynamic laoding comp -----------
+-Remove the comp from declarations array app.module.ts
+-comp can be Loaded once & can be rendered multiple times
+-services can still be used here
+-modules cannot be used directly we need to declare it in ngModule in comp & create a class 
+
+
+-------- HMR[Hot Module Replacement](part of webpack) -----------
+-Requirement: do not reload whole page, just reload only the compiled part so that we can persist state of other components
+-state mgmt: persist state of app even after refreshing pg
+-hmr: persist the state between two compilations 
+-Useful in development stage only not prod
+--Enable HMR:
+--<11: stpes 
+-->11: ng serve --hmr 
+
+
+
+
+
+

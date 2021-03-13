@@ -1,0 +1,119 @@
+Pull approach
+
+// Source 
+let Product = {
+	price : 10;
+}
+
+
+displayProduct(){
+	each 1 second it return 
+	return Product.Price; 
+
+}
+
+// subscriber 
+// consumer 
+let a = displayProduct(); // 10 9.10 am 
+
+
+// at 9.15 am 
+
+// value of Product price is changed - 20 
+
+print a; displayProduct() // 20 
+print b ; displayProduct()// 20 
+
+
+
+// at 9.30 am 
+
+print a; displayProduct() // 20 
+print b ; displayProduct()// 20 
+
+a function that returns more than one value on certain interval is called Generator in JavaSCript 
+
+// kind of special object 
+// It is capabale of notfifying to the subscribers whenever something changes in in 
+// Push approach 
+special  type of  object (let Product = {
+	price : 10;
+}) 
+
+a.subscribe();
+b.subscribe();
+
+If this special object only notfies once in the future - then this special object is called Promise 
+
+If this special object only keep notifying and returning values  in the future - then this special object is called Observable  
+
+
+
+Pull Approach                          Push Approach 
+
+function - one value                  Promise - one value 
+Generator - multiple values 		  Observable - multiple values 
+
+function(){                           Promise 
+	//kskjbdskjbdkjdbjkdbjkdsb        /jdjdjdjdjd
+
+	return 9;                         // return one value 
+}
+
+generator()                          Observable 
+{
+	//busines slogic                 // busines slogic 
+	return 1                         return 9 
+	// busines slogic                // business logic 
+	return 99;                       // return 99 
+}
+
+function *Count(){
+
+	return 9;
+	return {
+		a:'b'
+	}
+
+	return 99; 
+
+}
+
+var a = Count.next(); 
+
+Observable 
+
+1. next 
+2. error 
+3. complete 
+
+Use an observable inside an observer 
+
+observer has three callback functions to handle 
+
+1. next 
+2. error 
+3. complete 
+
+
+
+
+
+Observable has a subscriber function . Subscribver function can return three possible values 
+
+1. next - data 
+2. error - error 
+3. complete - completed 
+
+To use an observable you need an observer. The observer object should have three call back function to handle
+three possible data from observable. Those callback functions are 
+
+1. next 
+2. error 
+3. complete 
+
+These are partial. 
+
+step 1 : create an observable 
+step 2 : create a observer 
+step 3 : use obserber to subscribe 

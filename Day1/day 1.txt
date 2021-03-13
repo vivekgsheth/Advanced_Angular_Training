@@ -1,0 +1,132 @@
+
+Data Binding 
+
+Object (Data) <------> UI 
+
+Three types of directives 
+
+1. Attribute Directive (cutom attribute directive)
+
+2. Structural Directive ( *ngFor, *ngIf) 
+
+3. Component - creates a new DOM element 
+
+
+Component = TS + HTML + CSS 
+
+
+TS       HTML 
+
+a = 9 ;   {{a}} = 9 
+
+a = 19 ; {{a}} = 19 
+
+
+<button (click)='changedate()'>chnage date</button>
+
+<jquery-calanadr (selectdate)='changedate()'></jquery-calanadr>
+
+changedate(){
+
+   // with date 
+}
+
+
+ngZone 
+
+zone.js 
+
+It makes events as async event 
+
+it has taken a subset of zone.js in angular framework
+
+ngZone - to make events as async 
+
+event binding (click)='function()'
+
+
+We are performing click on the parent component 
+
+That is causing CD of child component to run 
+
+It will not only run CD of child componnet but it will run CD of all cub children 
+
+100 of @Input decocrated properties 
+
+If any one of 100 propetrties values changes CD will run 
+
+10 column and 100 Rows  = Product; This is changing in the parent component 
+
+
+
+@Input() Product; 
+
+
+   EditProduct 
+
+Editing the product ----> View Prduct 
+
+There are two types of change detection starteggies 
+
+defualt - whenever data changes in @Input() decorated properties, CD runs 
+
+onPush -  whenever new reference (new object) is passed in @Input() decorated properties, CD runs 
+
+1. set change detection strategy to onPush and passing new object
+
+2. have a explcit button for data refresh or pass new object 
+
+3. Ideal Scenario 
+
+Change Detector should only run when data changes 
+
+step 1 : onPush to child component 
+
+step 2 : Do not pass new object to child component . We created special type of object 
+
+step 3 : Some how find out whenever data changes in the parent componnet 
+
+step 4 : Run change detector manually 
+
+
+You called 3 API in same component 
+
+1 API- 
+
+CD has no relationship with your API 
+
+Whenever you call an API, CD runs and CD is one to one relationship with component 
+
+a component has only one CD 
+
+1. subscribe 
+2.  manually run CD 
+3. Unsubscribe 
+
+async 
+
+
+Smart component - Container Component  
+
+Dumb component - Presenter Component 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

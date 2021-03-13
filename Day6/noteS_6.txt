@@ -1,0 +1,7 @@
+------------ Ways to improve performance -----------
+-Preloading stratergies:
+	preloadall: all lazy loaded modules will be downloaded
+	quicklink: whatever links are avail on tht page all that lazy loaded modules will be downloaded
+	(not a part of stratergy)default way: download on click of btn
+-
+

@@ -1,0 +1,53 @@
+------------- Change Detection -------------
+-Detects the comp for data chagne & re renders 
+-Every component has its own change detector [1:1]
+-We can detach it so the data will not be in sync
+-It will ONLY work on COMPONENT not particular VARIABLES.
+-Normally, Angular runs ChangeDetector on its own, but it will run whenever any 3 of these will happen:
+	1. An event such as click, submit gets fired.
+	2. XHR call to work with an API.
+	3. Asynchronous JavaScript functions such as setTimeOut() or setInterval() gets executed.
+-ngZone (zone.js):
+	--It makes an event as ASYNC event
+	--Whichever events are part of ngZone can use event binding
+	--We can write code to make third party events a part of ngZone
+-Traversal: Unidirectional, Top to Bottom
+
+--Types of changedetection stratergy:
+	1. Default: Whenever data changes in @Input() decorated properties, CD runs.
+	2. OnPush: Whenever new reference(new object) is passed in @Input() decorated prop, CD runs.
+-NOTE:  If CD is stopped at one level it will not run for below childs as well.
+-IMP:	We can create a click event explicitly for calling CD when stratergy is OnPush rather than passing new obj everytime
+
+---Reducing no of checks in change detector:
+-Use OnPush stratergy & have a explicit a btn to refresh the data or pass a new obj
+-
+
+----ChangeDetectorRef
+--detectChanges(): runs the CD right now for this as well as all its CHILD components.[DOWNWARD]
+--markForCheck(): makes this as well as all its PARENT components as dirty, it will run CD next time.[UPWARD]
+--detach(): detach CD
+--reattach(): attach CD
+--
+
+--Best approach:
+-OnPush stratergy
+-create Observable & also unsubscribe it on ngOnDestroy()
+-use markForCheck()
+
+----- async pipe (observable type) ------
+-subscribe
+-manually run CD
+-unsubscribe
+IMP: It will always use markForCheck() & it can only be used in template
+
+
+--Smart component: Container - API calls 
+--Dumb component: Presenter - gets data from parent & display
+
+Doubts:
+--scenario 1				--scenario 2
+-Btn click : C2 			-Btn click : C211
+-OnPush: C21				-OnPush: C21
+-Will CD run for C211?			-Will CD run for C211?
+

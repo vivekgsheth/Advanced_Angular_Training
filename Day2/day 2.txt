@@ -1,0 +1,84 @@
+Angular service is used to created resusable functions 
+it is singelton 
+
+Step 1 : Create a service - ng g s app ( singelton service) 
+
+Step 2 : Provide a service 
+
+Step 3 - Inject the service - private a: ServiceName 
+
+Step 4 - Use the service - this.a.functioname() 
+
+
+
+Angular Read a service 
+
+Step 1 - Step 4 To find whether service is used 
+
+Step 2 - Step 3 will find out whether  service is injected or not . If it is not injected, it throws you compile time errror.
+
+Step 3 : Step 2 . It will find how service is provided 
+
+Step 4 : Step 1 : where and how service class  is created 
+
+
+
+How it searches the provider 
+
+1. In the current component 
+2. In the parent component 
+3. In the grand parent component 
+4. In the current module 
+5. In the main module 
+6. Will check provideIn value of service 
+
+You can provide a service in two ways 
+
+1. using providers array  ( it is not treeshakaebale) 
+2. using provideIn option ( It is treeshakeable) 
+
+
+Loading a component dynamicaly 
+Loading a librray dynamically 
+
+
+ng g s myservice 
+
+singelton - reprvide it is not singelton 
+tree shakeale - prviders 
+
+
+module 1 - LogService - provideIn : 'root'
+
+Module 2 - using Module 1 here 
+
+
+
+DI 
+Services
+Singeton 
+Treeshaekable 
+Provider Hierarchy 
+provideIn and providers 
+useClass
+useExisting
+useFactory
+Global Error Hanlder 
+
+Lazly Loaded Module - service 
+any 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

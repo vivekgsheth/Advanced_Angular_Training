@@ -1,0 +1,43 @@
+------------- Lazy loaded modules ----------
+->cmd: ng generate module customer --route customer --module app.module
+->{path:'customer' loadChildren: () => import('customer.module').then(m => m.CustomerModule) }
+-The file will be downloaded only when user goes to that link
+-It will reduce the size of bundle
+
+--whatever we write inside the ctor that is nt a SERVICE_NAME that is a TOKEN.
+
+
+----------- Working with services in Lazy loaded modules --------
+
+
+-- Scenario : 
+-User visits the website, home screen is loaded meanwhile the user is there, in the background we want to download other modules so user gets better experience.
+--Soln:
+ngAfterViewInit(){
+	dynamically load modules
+}
+
+
+--providedIn: any - it will create a tree shakeable service &
+single instance : (main + eagerly loaded modules)
+different instances : lazy loaded modules
+
+----------------- Content projection --------------------
+-allows to project HTML from parent to child
+-use same component[signup & login] & we can proj using tagname, attrname([]) or classname(.)
+-we can also use interpolation to change values
+- <ng-content select=""></ng-content>
+
+-anything inside some component: "ViewChild"
+-anything inside ng-content: "ContentChild" -> it will look in "viewProviders" array
+-we can use ngAfterContentInit() life cycle hook to get the values 
+
+
+life cycle hierarchy:
+ctor->
+OnChanges()-> not called if the comp does not have inputs
+OnInit()-> called once
+ContentInit()-> 
+AfterViewInit() -> 
+
+

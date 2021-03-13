@@ -1,0 +1,45 @@
+------------- RxJS(Reactive Extensions for JavaScript) ----------------
+-A function tht returns more than one value on certain interval is called Generator func in JS.
+-Pull approach:
+ --function:  returns one val
+ --generator: returns multiple values
+-Push approach:
+ --there is a special object
+ --it is capable of notifying to subscribers
+ --Promise:    special type of obj that notifies only once in future	
+ --Observable: special type of obj that keeps notifying & keep returning values
+-function  <-->  promise
+-generator <--> observable
+-cmd: npm init (creates a package.json)
+-Subject, BehaviorSubject
+-websockets: push mechanism i.e. server pushes the data to client if data chnges
+
+--------- Obervables ----------
+-Possible return values:
+1.next
+2.error
+3.complete
+
+-use an observable inside an observer
+--Observer will have 3 callback functions each to handle the 3 values that obervable returns
+1.next()
+2.error()
+3.complete()
+--all are optional values
+
+--Observable has a subscriber function
+--Subscriber function returns 3 values:
+	data
+	error
+	complete
+--Diff between subject & observable:
+	-for observable the subscribe function shared between all the observers, whereas for subject it is individual for each observer.
+
+---------- Subjects -----------
+-Subject: 
+-BehaviorSubject: 
+-AsyncSubject:  
+
+
+-------- DeclarativeRxJS ----------
+-

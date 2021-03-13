@@ -1,0 +1,46 @@
+--------------------- Services ---------------------
+--Tree Shakeable
+-Removes the code from the final bundle if app doesn't reference that code
+-Reduces the size of bundle
+-When providers are tree-shakeable, angular compiler removes associated services from final output when it determines that app doesn't use those services.
+
+-------- Angular reading a service -------
+Step1: Step4 - To find whether service is used
+Step2: Step3 - Will find out whether service is injected or not. If it is not injected then compile time err
+Step3: Step2 - It will find how service is provided
+Step4: Step1 - Where & how service class is created
+
+--------- How service is searched -------
+1. In current component
+2. In parent component
+3. In grandparent component
+4. In current module
+5. In main module
+6. Will check provideIn value of service
+7. If not found anywhere then throws RUNTIME error i.e. provideIn is missing
+
+--if we write in providers:[] array - it will create a new service instance for that component
+
+--If we use "providers" array then it will not be treeshakeable 
+--If we use "provideIn:" then it will be treeshakeable(default is treeshakeable)
+
+-- We can also use "providedIn:AppModule" for a "treeshakeable" & a "new service instance"
+
+Default scenario:
+-Singleton
+-Treeshakeable
+
+-Whenever we are using the service in a component we use a name in ctor that name is "token" i.e value provided in "provide"
+[this opts are also avail in providedIn]
+-useClass: actual name of the service
+-useExisting: to use the available service instance
+-useFactory: write any custom func & return a service instance
+-useValue: ???
+
+--Global error handling:
+
+
+
+
+
+
